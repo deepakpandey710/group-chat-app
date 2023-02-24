@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Websocket</title>
+</head>
+<body>
+    <script>
+        var sock=new WebSocket("ws://localhost:5000");
+        sock.onopen=function(event){
+            alert("socket connected successfully");
+            setTimeout(() => {
+                sock.send("hey there");
+            }, 1000);
+        };
+        sock.onmessage=function(event){
+            console.log(event)
+        }
+    </script>
+</body>
+</html>
